@@ -1,0 +1,190 @@
+<div id="page-content">
+<form action="/" method="post">
+
+</div>
+    <div id="a" class="">
+        <nav class="navbar navbar-expand-sm justify-content-end">
+            <p style="margin: 0" class="navbar-brand">Guava RF   <i class="fas fa-wifi"></i></p>        
+            <p style="margin: 0;padding-right:15px" class="navbar-brand ml-auto mr-1">Status : {{status}}</p>
+            {{#if statusFlag}}
+            <div class="spinner-grow text-success" role="status"></div>
+            {{else}}
+            <div class="spinner-border text-danger" role="status"></div>
+            {{/if}}        
+        </nav>
+    </div>
+    <div id="b" class="split">
+        <div id="d" class="split content split-horizontal"> 
+            <div class="left_menu">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Port</label>
+                    </div>
+                    <select name="port" class="custom-select" id="inputGroupSelect01">
+                            {{#each ports}}
+                            <option value="{{this}}">{{this}}</option>
+                            {{/each}}
+                            {{#if port}}
+                            <option value="{{port}}" selected>{{port}}</option>
+                            {{else}}
+                            <option value="null" selected>Choose...</option>
+                            {{/if}}
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Baud</label>
+                    </div>
+                    <select name="baud" class="custom-select" id="inputGroupSelect01">
+                        <option type="number" value="300">300</option>
+                        <option type="number" value="600">600</option>
+                        <option type="number" value="1200">1200</option>
+                        <option type="number" value="2400">2400</option>
+                        <option type="number" value="4800">4800</option>
+                        <option type="number" value="9600">9600</option>
+                        <option type="number" value="14400">14400</option>
+                        <option type="number" value="19200">19200</option>
+                        <option type="number" value="28800">28800</option>
+                        <option type="number" value="38400">38400</option>
+                        <option type="number" value="56000">56000</option>
+                        <option type="number" value="57600">57600</option>
+                        <option type="number" value="115200">115200</option>
+                        <option type="number" value="128000">128000</option>
+                        <option type="number" value="256000">256000</option>
+                        {{#if baud}}
+                        <option value="{{baud}}" selected>{{baud}}</option>
+                        {{else}}
+                        <option value="null" selected>Choose...</option>
+                        {{/if}}
+                    </select>
+                </div>
+                <div>
+                    <input class="btn btn-success" type="submit" value="Connect">
+                </div>
+            </div>
+        </div>
+
+        <div id="e" class="split content split-horizontal overflow-hidden">
+            <div class="mid_menu">
+                <div class="row">
+                    <div class="col-sm">
+                    </div>
+                    <div class="col-sm">
+                        <h5 class="card-title">Somfy Controller</h5>
+                    </div>
+                    <div class="col-sm">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                            <div><button type="submit" class="btn btn-secondary" name="up" value = "1"><i class="fas fa-angle-up"></i></button></div>
+                    </div>
+                    <div class="col-sm">
+                            <div><button type="submit" class="btn btn-secondary" name="upmy" value = "1"><i class="fas fa-angle-up"></i> + my</button></div>
+                    </div>
+                    <div class="col-sm">
+                            <div><button type="submit" class="btn btn-secondary" name="prog" value = "1">PROG</button></div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm">
+                            <div><button type="submit" class="btn btn-secondary" name="my" value = "1">my</button></div>
+                    </div>
+                    <div class="col-sm">
+                    </div>
+                    <div class="col-sm">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                            <div><button type="submit" class="btn btn-secondary" name="down" value = "1"><i class="fas fa-angle-down"></i></button></div>
+                    </div>
+                    <div class="col-sm">
+                            <div><button type="submit" class="btn btn-secondary" name="mydown" value = "1"><i class="fas fa-angle-down"></i> + my</button></div>
+                    </div>
+                    <div class="col-sm">
+                            <div><button type="submit" class="btn btn-secondary" name="updown" value = "1"><i class="fas fa-angle-up"></i> + <i class="fas fa-angle-down"></i></button></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                    </div>
+                        Custom commands
+                    <div class="col-sm">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                            <div><button type="submit" class="btn btn-secondary" name="one" value = "1">1</button></div>
+                    </div>
+                    <div class="col-sm">
+                            <div><button type="submit" class="btn btn-secondary" name="two" value = "1">2</button></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                            <div><button type="submit" class="btn btn-secondary" name="ump" value = "1">:</button></div>
+                    </div>
+                    <div class="col-sm">
+                            <div><button type="submit" class="btn btn-secondary" name="doisp" value = "1">;</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="f" class="split content split-horizontal overflow-hidden">
+            <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Transmited data</a>
+            <div><button type="submit" class="btn btn-secondary" name="cleartx" value = "1">Clear</button></div>
+            </nav>            
+            <textarea class="form-control" id="exampleFormControlTextarea3" rows="20" style="height: 100%; background-color: #cccccc;">{{txdata}}</textarea>         
+        </div>
+
+    </div>
+</form>
+
+
+    <div id="c" class="split content">
+
+<div class="form-group">
+
+                             {{#each rxdata}}
+                            {{this}}
+                            {{/each}}
+  {{!-- <label for="exampleFormControlTextarea3">Rounded corners</label> --}}
+  {{!-- <textarea class="form-control" id="exampleFormControlTextarea3" rows="7"></textarea> --}}
+</div>
+
+    </div>
+
+<footer id="sticky-footer" class="py-4">
+    <div class="container text-center">
+        <small>Copyright &copy; HomeSystems</small>
+    </div>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.5.11/split.min.js"></script>
+<script>
+
+Split(['#b', '#c'], {
+    sizes: [70, 30],
+    minSize: [360, 100],
+    expandToMin: true,
+    gutterSize: 5,
+    cursor: 'pointer',
+    direction: 'vertical',
+});
+Split(['#d', '#e', '#f'], {
+    sizes: [25, 35, 40],
+    minSize: [250, 410,176],
+    expandToMin: true,
+    gutterSize: 5,
+    cursor: 'row-resize',
+});
+</script>
